@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'courses/new'
+  get 'courses/index'
+  get 'courses/show'
   root to: 'application#welcome'
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
 
