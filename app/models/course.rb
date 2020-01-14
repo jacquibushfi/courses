@@ -4,5 +4,6 @@ class Course < ApplicationRecord
   has_many :users, through: :enrollments
 
   validates :title, :category, presence: true
+  validates :title,  uniqueness: true
   
 end
