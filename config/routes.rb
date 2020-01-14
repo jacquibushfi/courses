@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'enrollments/new'
+  get 'enrollments/show'
+  get 'enrollments/index'
+  get 'enrollments/edit'
   get 'courses/new'
   get 'courses/index'
   get 'courses/show'
