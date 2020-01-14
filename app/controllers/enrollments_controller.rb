@@ -1,13 +1,14 @@
 class EnrollmentsController < ApplicationController
-  def new
+  
+  def create
+    enrollment = Enrollment.create(enrollment_params)
+    redirect_to enrollment.post
   end
 
-  def show
+  private
+
+  def enrollment_params
+    params.require(:enrollment).permit(:rating, :user_id, :course_id, user_attributes:[:username])
   end
 
-  def index
-  end
-
-  def edit
-  end
 end
