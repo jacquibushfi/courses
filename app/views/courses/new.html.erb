@@ -11,9 +11,9 @@
     <%= f.label :category %>
     <%= f.text_field :category %>
 
-    <%= f.fields_fo :enrollments do |enroll|
+    <%= f.fields_for :enrollments do |enroll| %>
       <%= enroll.label :rating %>
-      <%= enroll.number_tield :rating %>
+      <%= enroll.number_field :rating %>
     <% end %>
-  <%= f.submit  %>
+  <%= f.submit %>
 <% end %>
