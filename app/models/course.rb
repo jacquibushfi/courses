@@ -6,6 +6,6 @@ class Course < ApplicationRecord
   validates :title, :category, presence: true
   validates :title,  uniqueness: true
 
-  accepts_nested_attributes_for :enrollments,  reject_if: lambda {|attributes| attributes['rating'].blank?}
+  accepts_nested_attributes_for :enrollments
   
 end

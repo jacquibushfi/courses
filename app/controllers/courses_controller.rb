@@ -4,25 +4,20 @@ class CoursesController < ApplicationController
     @course.enrollments.build
   end
 
-  def index
-    @courses = Course.all 
-
-  end
-
   def create
     course = Course.create(course_params)
-    
-    redirect_to courses_path
+    redirect_to courses_path  
   end
 
-  def show
-    @course = Course.find_by(params[:id])
+  def index
+    @courses = Course.all 
   end
+
 
 private
 
   def course_params
-    params.require(:course).permit(:title, :description, :category, enrollments_attributes: [:course_id, :user_id, :rating])
+    params.require(:course).permit(:title, :description, :category, enrollments_attributes: [:rating])
   end
 
 
