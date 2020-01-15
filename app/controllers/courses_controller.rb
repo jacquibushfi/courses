@@ -1,11 +1,14 @@
 class CoursesController < ApplicationController
   def new
     @course = Course.new
-    @course.enrollments.build
+    @course.enrollments.build(user_id: current_user.id)
   end
 
   def create
+    
     course = Course.create(course_params)
+    binding.pry
+
     redirect_to courses_path  
   end
 
@@ -17,7 +20,7 @@ class CoursesController < ApplicationController
 private
 
   def course_params
-    params.require(:course).permit(:title, :description, :category, enrollments_attributes: [:rating])
+    params.require(:course).permit(:title, :description, :category, enrollments_attributes: [:rating, :user_id, :course_id])
   end
 
 
