@@ -1,7 +1,7 @@
 class EnrollmentsController < ApplicationController
   
   def create
-    enrollment = Enrollment.create(enrollment_params)
+    enrollment = @course.Enrollments.build(enrollment_params)
     redirect_to enrollment.post
   end
 

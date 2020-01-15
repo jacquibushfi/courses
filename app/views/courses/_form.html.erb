@@ -15,13 +15,4 @@
     <%= f.text_field :category %>
   </p>
 
-  <p>
-    <%= f.fields_for :enrollments do |enrollment_form| %>
-      <%= enrollment_form.label :rating %>
-      <%= enrollment_form.number_field :rating %>
-    <% end %>
-  </p> 
-  <br/>>
-  <%= f.submit %>
-      
-  <% end %>
+<% end %>

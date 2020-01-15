@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   def new
     @course = Course.new
+    @course.enrollments.build
   end
 
   def index
@@ -24,7 +25,7 @@ class CoursesController < ApplicationController
 private
 
   def course_params
-    params.require(:course).permit(:title, :description, :category)
+    params.require(:course).permit(:title, :description, :category, enrollments_attributes: [course_id, user_id, rating])
   end
 
 
