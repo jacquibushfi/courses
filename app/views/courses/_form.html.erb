@@ -1,0 +1,25 @@
+<%= form_for(course) do |f| %>
+  <%= render partial: 'layouts/form_errors', locals: { form_errors: recipe } %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </p>
+
+  <p>
+    <%= f.label :enrollment %>
+    <%= f.fields_for :enrollment do |enrollment_form| %>
+      <%= render 'enrollment_fields', f: enrollment_form %>
+    <% end %>
+  
+  </p>
