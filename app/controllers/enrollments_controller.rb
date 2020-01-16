@@ -2,11 +2,16 @@ class EnrollmentsController < ApplicationController
 
   def new
     @enrollment = Enrollment.new
+    
+    @course = Course.find_by(id: params[:course_id])
+    #raise params.inspect
   end
   
   def create
-    enrollment = @user.Enrollments.build(enrollment_params)
-    redirect_to course
+     #raise params.inspect
+    enrollment = current_user.enrollments.build(enrollment_params)
+    enrollment.save
+    redirect_to courses_path
   end
 
   private

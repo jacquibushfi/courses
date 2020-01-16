@@ -1,5 +1,5 @@
-<%= form_for(@course) do |f| %>
-  
+<%= form_for(course) do |f| %>
+  <%#  create new course only %>
   <p>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -15,6 +15,6 @@
     <%= f.text_field :category %>
   </p>
 
-  <%= link_to "Add Rating", new_enrollment_path, "btn btn-primary" %>
+  <%= f.submit %>
 
 <% end %>

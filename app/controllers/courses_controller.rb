@@ -12,6 +12,12 @@ class CoursesController < ApplicationController
     @courses = Course.all 
   end
 
+  def show
+    # raise params.inspect
+    @course = Course.find_by(id: params[:id])
+  end
+
+
 
 private
 

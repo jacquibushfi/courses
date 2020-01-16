@@ -4,10 +4,10 @@
 <%= @course.title %> 
 
 
-<%= form_for @enrollment do |e| %>
-        <%= e.hidden_field :user_id %>
-        <%= e.hidden_field :course_id %>
+<%= form_for @enrollment, :url => course_enrollments_path(@course) do |e| %>
+        <%= e.hidden_field :user_id, value: current_user.id %>
+        <%= e.hidden_field :course_id, value: @course.id %>
         <%= e.label :rating %>
         <%= e.number_field :rating %>
-        <% = e.submit %>
+        <%= e.submit %>
 <% end %>
