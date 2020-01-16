@@ -6,7 +6,8 @@ class Course < ApplicationRecord
   validates :title, :category, presence: true
   validates :title,  uniqueness: true
 
-  scope :ordered_by_category, -> { order('category') }
+  scope :glass, -> { where(category: "Glass") }
+  scope :jewelry, -> { where(category: "Jewelry") }
   
   
 end

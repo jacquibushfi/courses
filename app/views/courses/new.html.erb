@@ -9,12 +9,7 @@
     <%= f.text_field :description %>
 
     <%= f.label :category %>
-    <%= f.text_field :category %>
-
-    <%# f.fields_for :enrollments,  current_user.enrollments.build do |enroll| %>
-
-      <%# enroll.label :rating %>
-      <%# enroll.number_field :rating %>
-    <%# end %>
+    <%= f.select :category, ["Glass", "Jewelry"] %>
+    
   <%= f.submit %>
 <% end %>

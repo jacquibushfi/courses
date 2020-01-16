@@ -1,7 +1,25 @@
-<h1>Course List</h1>
 
-<ul>
-  <% @courses.ordered_by_category.each do |course| %> 
-    <li><%= course.category %>    <%= link_to course.title, course_path(course) %></li>
+<h2>Glass Courses</h2>
+<% @courses.glass.each do |glass| %> 
+    <li><%= glass.category %>
+        <%= link_to glass.title, course_path(glass) %>
+    </li>
   <% end  %>
+</br>
+</br>
+
+
+<h2>Jewelry Courses</h2>
+<% @courses.jewelry.each do |jewelry| %> 
+    <li><%= jewelry.category %>
+        <%= link_to jewelry.title, course_path(jewelry) %>
+    </li>
+  <% end  %>
+
+
+  <%# @courses.ordered_by_category.each do |course| %> 
+    <li><%# course.category %>
+        <%# link_to course.title, course_path(course) %>
+    </li>
+  <%# end  %>
 </ul>
