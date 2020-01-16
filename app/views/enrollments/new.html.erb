@@ -1,9 +1,10 @@
-<h1>Rating</h1>
-<p></p>
+<h1> Enrollment Rating</h1>
+<br/>
+<br/>
+<h2><%= @course.title %> </h2>
 
-<%= @course.title %> 
-
-
+<br/>
+<br/>
 <%= form_for @enrollment, :url => course_enrollments_path(@course) do |e| %>
         <%= e.hidden_field :user_id, value: current_user.id %>
         <%= e.hidden_field :course_id, value: @course.id %>

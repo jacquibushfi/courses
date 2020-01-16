@@ -1,8 +1,7 @@
-<h1>Courses#index</h1>
+<h1>Course List</h1>
 
 <ul>
   <% @courses.ordered_by_category.each do |course| %> 
-    <li><%= link_to course.title, course_path(course) %></li>
-      
+    <li><%= course.category %>    <%= link_to course.title, course_path(course) %></li>
   <% end  %>
 </ul>

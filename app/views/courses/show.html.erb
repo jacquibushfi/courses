@@ -1,9 +1,9 @@
 <h1><%= @course.title %></h1>
 
-<%# render partial: 'form', locals: {course: @course} %>
 
-title: <%= @course.title %>
-Description: 
-Category:
+<p> 
+  Description:   <%= @course.description %></br>
+  Category:      <%= @course.category %></br>
+</p>
 
 <%= link_to "Add Rating", new_course_enrollment_path(course_id: @course.id) %>
