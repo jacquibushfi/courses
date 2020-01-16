@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   root to: 'application#welcome'
+
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
 
   devise_scope :user do 
@@ -11,9 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :courses, except: [:destroy] do
-    resources :enrollments, except: [:destroy] 
+    resources :enrollments,  only: [:new, :create, :index]
   end
-
+  
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
