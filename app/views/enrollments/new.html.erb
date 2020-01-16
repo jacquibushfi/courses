@@ -1,5 +1,7 @@
-<h1>Enrollments#new</h1>
-<p>Find me in app/views/enrollments/new.html.erb</p>
+<h1>Rating</h1>
+<p></p>
+
+<%= @course.title %> 
 
 
 <%= form_for @enrollment do |e| %>
@@ -7,5 +9,5 @@
         <%= e.hidden_field :course_id %>
         <%= e.label :rating %>
         <%= e.number_field :rating %>
-        <% = e.submit "Rate this Course" %>
+        <% = e.submit %>
 <% end %>
