@@ -6,7 +6,6 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.create(course_params)
-  #binding.pry
     if @course.save
       redirect_to courses_path  
     else
@@ -19,7 +18,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    # raise params.inspect
     @course = Course.find_by(id: params[:id])
   end
 
