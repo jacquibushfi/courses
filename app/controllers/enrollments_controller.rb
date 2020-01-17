@@ -2,7 +2,9 @@ class EnrollmentsController < ApplicationController
 
   def new
     @enrollment = current_user.enrollments.build
+    
     @course = Course.find_by(id: params[:course_id])
+
     #raise params.inspect
   end
   
@@ -10,11 +12,10 @@ class EnrollmentsController < ApplicationController
      #raise params.inspect
     @enrollment = current_user.enrollments.build(enrollment_params)
     @course = Course.find_by(id: params[:course_id])
-    if @enrollment.save
+    #binding.pry
+    @enrollment.save
        redirect_to courses_path
-    else
-      render :new
-    end
+    
   end
 
     private
