@@ -6,11 +6,14 @@
 <br/>
 <br/>
 <%= form_for @enrollment, :url => course_enrollments_path(@course) do |e| %>
-        <%= e.hidden_field :user_id, value: current_user.id %>
-        <%= e.hidden_field :course_id, value: @course.id %>
-        <%= e.label :rating %>
-        <%= e.select :rating, [1,2,3,4,5] %>
-        <%= e.submit  "Submit" %>
+  
+  <%= render partial: 'layouts/form_errors', locals: { form_errors: @enrollment } %>
+
+  <%= e.hidden_field :user_id, value: current_user.id %>
+  <%= e.hidden_field :course_id, value: @course.id %> 
+  <%= e.label :rating %>
+  <%= e.select :rating, [1,2,3,4,5] %>
+  <%= e.submit  "Submit" %>
 <% end %>
 
 f.select :category, ["Glass", "Jewelry"]

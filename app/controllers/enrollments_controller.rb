@@ -9,8 +9,11 @@ class EnrollmentsController < ApplicationController
   def create
      #raise params.inspect
     enrollment = current_user.enrollments.build(enrollment_params)
-    enrollment.save
-    redirect_to courses_path
+    if enrollment.save
+       redirect_to courses_path
+    else
+      render :new
+    end
   end
 
     private
