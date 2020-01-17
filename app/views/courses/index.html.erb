@@ -1,20 +1,20 @@
 
-<h2>Glass Courses</h2>
-<% @courses.glass.each do |glass| %> 
-    <li><%= glass.category %>
-        <%= link_to glass.title, course_path(glass) %>
+
+<% @courses.order_by_category.each do |c| %> 
+
+    <li><%= c.category %>
+   
+        <%= link_to c.title, course_path(c) %> 
+        <% if current_user.courses.include?(c) %>
+          <%= link_to user_rating(c).rating, edit_course_enrollment_path(c, user_rating(c)) %>
+        <% end %>
+        <%#link to a rating if I have a rating got to a show page of rating and can edit rating. %>
     </li>
   <% end  %>
 </br>
 </br>
 
 
-<h2>Jewelry Courses</h2>
-<% @courses.jewelry.each do |jewelry| %> 
-    <li><%= jewelry.category %>
-        <%= link_to jewelry.title, course_path(jewelry) %>
-    </li>
-  <% end  %>
 
 
   

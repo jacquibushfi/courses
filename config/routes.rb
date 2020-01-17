@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   end
 
   resources :courses, except: [:destroy] do
-    resources :enrollments,  only: [:new, :create, :index]
+    resources :enrollments,  only: [:new, :create, :index, :edit]
   end
   
+   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

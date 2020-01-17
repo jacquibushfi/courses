@@ -8,7 +8,6 @@
 
 <%= form_for @enrollment, :url => course_enrollments_path(@course) do |e| %>
 
-
 <% if @enrollment.errors.any? %>
     <div id="error_explanation">
       <h2>There were some errors:</h2>
@@ -20,9 +19,8 @@
       </ul>
     </div>
   <% end %>
-  
-  <%# e.hidden_field :user_id, value: current_user.id %>
-  <%# e.hidden_field :course_id, value: @course.id %> 
+  <%= e.hidden_field :course_id, value:  @course.id %>
+
   <%= e.label :rating %>
   <%= e.select :rating, [1,2,3,4,5] %>
   <%= e.submit  "Submit" %>

@@ -28,7 +28,7 @@ class CoursesController < ApplicationController
 private
 
   def course_params
-    params.require(:course).permit(:title, :description, :category, :id, user_attributes: [:id], enrollment_attributes: [:id, :rating] )
+    params.require(:course).permit(:title, :description, :category, :id )
   end
 
 
