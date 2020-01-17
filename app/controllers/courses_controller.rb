@@ -5,9 +5,9 @@ class CoursesController < ApplicationController
   end
 
   def create
-    course = Course.create(course_params)
+    @course = Course.create(course_params)
   #binding.pry
-    if course.save
+    if @course.save
       redirect_to courses_path  
     else
       render :new
