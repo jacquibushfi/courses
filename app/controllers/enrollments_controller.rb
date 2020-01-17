@@ -17,10 +17,16 @@ class EnrollmentsController < ApplicationController
   end
 
   def edit
-    @enrollment = Enrollment.find_by(id: params[:id])
+    @enrollment = current_user.enrollments.find_by(id: params[:id])
   end
 
   def update
+    @enrollment = current_user.enrollments.find_by(id: params[:id])
+    if @enrollment.update_attributes(enrollment_params)
+      redirect_to courses_path
+    else
+      render :edit
+    end
   end
 
     private

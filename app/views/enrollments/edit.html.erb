@@ -2,7 +2,7 @@
 <p>Find me in app/views/enrollments/edit.html.erb</p>
 
 
-<%= form_for @enrollment do |f| %>
+<%= form_for [ @enrollment.course, @enrollment]  do |f| %>
 
   <% if @enrollment.errors.any? %>
       <div id="error_explanation">
@@ -21,11 +21,11 @@
   <br/>>
   <br/>>
 
-   <%= f.fields_for :courses do |c| %>
-     <%= c.title %><br/>
-     <%= c.description %><br/>
-     <%= c.category %><br/>
-     <% end %>
+   
+     <%= @enrollment.course.title %><br/>
+     <%= @enrollment.course.description %><br/>
+     <%= @enrollment.course.category %><br/>
+    
   <br/>
   <br/>
   <%= f.submit %>
