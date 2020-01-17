@@ -1,6 +1,4 @@
-<h1>Enrollments#edit</h1>
-<p>Find me in app/views/enrollments/edit.html.erb</p>
-
+<h1>Change Rating</h1>
 
 <%= form_for [ @enrollment.course, @enrollment]  do |f| %>
 
@@ -18,17 +16,14 @@
 
   <%= f.label "Rating" %>
   <%= f.select :rating, [1,2,3,4,5] %>
-  <br/>>
-  <br/>>
-
-   
-     <%= @enrollment.course.title %><br/>
-     <%= @enrollment.course.description %><br/>
-     <%= @enrollment.course.category %><br/>
-    
   <br/>
   <br/>
-  <%= f.submit %>
+  <%= @enrollment.course.title %><br/>
+  <%= @enrollment.course.description %><br/>
+  <%= @enrollment.course.category %><br/>
+  <br/>
+  <br/>
+  <%= f.submit "Update Rating" %>
 <% end %>
 
 
