@@ -1,13 +1,15 @@
 class EnrollmentsController < ApplicationController
 
+    before_action :set_course, only: [:new, :create]
+    before_action :set_enrollment, only: [:edit, :update]
+
   def new
     @enrollment = current_user.enrollments.build
-    @course = Course.find_by(id: params[:course_id])
+    
   end
   
   def create
     @enrollment = current_user.enrollments.build(enrollment_params)
-    @course = Course.find_by(id: params[:course_id])
     
     if @enrollment.save
        redirect_to courses_path
@@ -17,11 +19,9 @@ class EnrollmentsController < ApplicationController
   end
 
   def edit
-    @enrollment = current_user.enrollments.find_by(id: params[:id])
   end
 
-  def update
-    @enrollment = current_user.enrollments.find_by(id: params[:id])
+  def update 
     if @enrollment.update_attributes(enrollment_params)
       redirect_to courses_path
     else
@@ -29,10 +29,19 @@ class EnrollmentsController < ApplicationController
     end
   end
 
-    private
+
+private
 
   def enrollment_params
     params.require(:enrollment).permit(:rating, :user_id, :course_id, :id )
   end
 
+  def set_course
+    @course = Course.find_by(id: params[:course_id])
+  end
+
+  def set_enrollment
+    @enrollment = current_user.enrollments.find_by(id: params[:id])
+  end
+  
 end

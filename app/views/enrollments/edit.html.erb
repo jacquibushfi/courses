@@ -18,11 +18,13 @@
   <%= f.select :rating, [1,2,3,4,5] %>
   <br/>
   <br/>
+
   <%= @enrollment.course.title %><br/>
   <%= @enrollment.course.description %><br/>
   <%= @enrollment.course.category %><br/>
   <br/>
   <br/>
+  
   <%= f.submit "Update Rating" %>
 <% end %>
 

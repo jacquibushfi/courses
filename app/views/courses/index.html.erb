@@ -3,14 +3,10 @@
 <% @courses.order_by_category.each do |c| %> 
 
   <li><%= c.category %>
-    <%# if user_enrollment = "" %>
       <%= link_to c.title, course_path(c) %> 
-    <%# else %>
-      <%# c.title %>
-    <%# end %>
-
+    
   <% if current_user.courses.include?(c) %>
-    <%= link_to user_enrollment(c).rating, edit_course_enrollment_path(c, user_enrollment(c)) %>
+      <%= link_to user_enrollment(c).rating, edit_course_enrollment_path(c, user_enrollment(c)) %>
   <% end %>
       
   </li>
