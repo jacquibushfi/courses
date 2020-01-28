@@ -1,7 +1,7 @@
 class EnrollmentsController < ApplicationController
 
     before_action :set_course, only: [:new, :create]
-    before_action :set_enrollment, only: [:edit, :update]
+    before_action :set_enrollment, only: [:edit, :update, :show]
 
   def new
     @enrollment = current_user.enrollments.build
@@ -23,10 +23,13 @@ class EnrollmentsController < ApplicationController
 
   def update 
     if @enrollment.update_attributes(enrollment_params)
-      redirect_to courses_path
+      redirect_to course_enrollment_path(@enrollment.course, @enrollment)
     else
       render :edit
     end
+  end
+
+  def show
   end
 
 

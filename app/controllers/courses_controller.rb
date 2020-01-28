@@ -15,7 +15,14 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.all 
+    if params[:search]
+      @courses = Course.where("title LIKE ?", params[:search])
+      if Course.where("title LIKE ?", params[:search]).empty?
+        @courses = Course.all
+      end
+   else
+      @courses = Course.all
+    end
   end
 
   def show
@@ -27,7 +34,9 @@ class CoursesController < ApplicationController
 private
 
   def course_params
-    params.require(:course).permit(:title, :description, :category, :id )
+    params.require(:course).permit(:title, :description, :category, :id, :search)
   end
+
   
+
 end

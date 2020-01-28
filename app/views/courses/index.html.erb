@@ -1,4 +1,9 @@
 
+<%= form_tag("/courses",  method: :get) do %>
+ Course <%= text_field_tag :search %>
+ <%= submit_tag 'Search', :name => nil %>
+ <% end %>
+
 
 <% @courses.order_by_category.each do |c| %> 
 

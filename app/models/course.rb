@@ -9,4 +9,5 @@ class Course < ApplicationRecord
   scope :order_by_category, -> { order('category') } 
   
   
+
 end

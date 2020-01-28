@@ -6,7 +6,7 @@
 <br/>
 <br/>
 
-<%= form_for @enrollment, :url => course_enrollments_path(@course) do |e| %>
+<%= form_for [@course, @enrollment] do |e| %>
 
 <% if @enrollment.errors.any? %>
   <div id="error_explanation">
